@@ -1,0 +1,17 @@
+modal-points {
+  ion-item {
+    background: rgba(1000,1000,1000, 0.7) !important;
+  }
+
+  ion-label{
+    white-space: normal !important;
+  }
+
+  ion-item div[item-left] {
+    text-align: center;
+    width: 51px;
+    height: 52px;
+    margin-right: 12px;
+  }
+}
+

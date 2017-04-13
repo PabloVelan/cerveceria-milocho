@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Canjeo de puntos
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cerrar</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="background-image: url('assets/img/points_back.jpg');">
+  <ion-list inset>
+    <ion-item *ngFor="let item of items">
+      <div item-left>
+        <div><h1>{{item.points}}</h1>
+        <span>pts</span></div>
+      </div>
+      {{item.message}}
+    </ion-item>
+  </ion-list>
+
+  
+</ion-content>

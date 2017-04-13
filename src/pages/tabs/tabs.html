@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <div class="splash-bg"></div>
+  </ion-navbar>
+  <div class="container">
+    <div class="splash-logo"></div>
+  </div>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+  <ion-card (click)="presentPointsModal()">
+    <img src="assets/img/card1.jpg"/>
+    <div class="card-title">tenés {{points}}pts</div>
+    <div class="card-subtitle">canjealos!</div>
+  </ion-card>
+
+  <ion-card (click)="presentNewsModal()">
+    <img src="assets/img/card2.jpg"/>
+    <div class="card-title">Novedades</div>
+    <div class="card-subtitle"></div>
+  </ion-card>
+
+  <ion-card (click)="presentLocationsModal()">
+    <img src="assets/img/card3.jpg"/>
+    <div class="card-title">Locales</div>
+    <div class="card-subtitle"></div>
+  </ion-card>
+
+</ion-content>
+
+<!--<ion-tabs>
+  <ion-tab [root]="tab1Root" tabTitle="1870" tabIcon="home"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="Mis puntos" tabIcon="information-circle"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="Contacto" tabIcon="contacts"></ion-tab>
+</ion-tabs>-->

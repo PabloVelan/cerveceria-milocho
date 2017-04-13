@@ -1,0 +1,87 @@
+page-tabs {
+  .container {
+      position:fixed;    
+      height: 30px;
+      width: auto;
+      left: 50%;
+      top: 0px;
+      margin-left: -60px;
+  }
+
+  .splash-bg {
+    position: relative;
+    background: url('../assets/img/splashbg.png') no-repeat transparent;
+    background-size: cover;
+    height: 55px;
+    z-index: 1;
+    background-repeat: repeat-x;
+    animation: animatedBackground 40s linear infinite;
+  }
+
+//   @keyframes animatedBackground {
+//     from { background-position: 0 0; }
+//     to { background-position: 100% 0; }
+//   }
+
+  .splash-info {
+    position: relative;
+    z-index: 2;
+    margin-top: -64px;
+    text-align: center;
+  }
+  .splash-logo {
+    margin: auto;
+    background: url('../assets/img/appicon.png') repeat transparent;
+    box-shadow: 0px 0px 10px 1px;
+    border-radius: 70px;
+    background-size: 130%;
+    background-position: -18px -18px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .toolbar-md {
+    padding: 0;
+    box-shadow: 0px 0px 6px 2px;
+  }
+
+  .header-md::after {
+    background-image: none;
+  }
+
+  .card-background-page {
+
+    ion-card {
+      position: relative;
+      text-align: center;
+    }
+
+    ion-card img {
+      filter: blur(3px);
+      transform: scale(1.05);
+    }
+
+    .card-title {
+      position: absolute;
+      top: 36%;
+      font-size: 2.5em;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .card-subtitle {
+      font-size: 1.5em;
+      position: absolute;
+      top: 52%;
+      width: 100%;
+      color: #fff;
+    }
+
+    .card-md{
+      background: none;
+      border: 0;
+    }
+  }
+}
+

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Novedades
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cerrar</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-list>
+  <button ion-item *ngFor="let item of items" (click)="showAlert(item.message)">
+    <h2>{{item.date}}</h2>
+    <ion-icon *ngIf="item.icon" name="{{item.icon}}" item-right></ion-icon>
+    {{item.message}}
+  </button>  
+</ion-list>
+</ion-content>
