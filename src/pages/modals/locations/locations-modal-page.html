@@ -28,24 +28,178 @@
         <ion-fab right top>
             <a href="geo:?q=Juan+B.+Palaá+592,+B1870ATJ+Avellaneda,+Buenos+Aires,+Argentina" target="_system">
                 <button ion-fab>
-                <ion-icon name="pin"></ion-icon>
-            </button></a>
+                    <ion-icon name="pin"></ion-icon>
+                </button>
+            </a>
+            <button ion-fab color="goldBeer" (click)="showAvellanedaCanillero = 'in'"  style="margin-top: 10px;">
+                <ion-icon name="beer"></ion-icon>
+            </button>
         </ion-fab>
+        
         <div class="locations-info">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </div>
     </ion-slide>
 
     <ion-slide class="slide-background" style="background-image: url('assets/img/localbanfield.jpg');">
-        <ion-fab right top>
-            <a href="geo:?q=Juan+B.+Palaá+592,+B1870ATJ+Avellaneda,+Buenos+Aires,+Argentina" target="_system">
-                <button ion-fab>
-                <ion-icon name="pin"></ion-icon>
-            </button></a>
+        <ion-fab top right #fab>
+            <button ion-fab id="openFab"><ion-icon name="add"></ion-icon></button>
+            <ion-fab-list side="bottom">
+                <a href="geo:?q=Juan+B.+Palaá+592,+B1870ATJ+Avellaneda,+Buenos+Aires,+Argentina" target="_system">
+                    <button ion-fab>
+                        <ion-label>¿Cómo llego?</ion-label>
+                        <ion-icon name="pin"></ion-icon>
+                    </button>
+                </a>
+                <button ion-fab (click)="showBanfieldCanillero = 'in'">
+                    <ion-label>Canillero</ion-label>
+                    <ion-icon name="beer"></ion-icon>
+                </button>
+            </ion-fab-list>
         </ion-fab>
         <div class="locations-info">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
         </div>
     </ion-slide>
   </ion-slides>
+
+  <!--Canilleros-->
+  <!--Avellaneda-->
+  <div [@slideInOut]="showAvellanedaCanillero" class="canillero-list">
+    <ion-fab top right>
+        <button mini ion-fab (click)="showAvellanedaCanillero = 'out'">
+            <ion-icon name="close"></ion-icon>
+        </button>
+    </ion-fab>
+    <ion-list>
+        <ion-list-header>
+            <h1 style="padding-top: 15px;">Canillero</h1>
+        </ion-list-header>
+        <ion-item>
+            <ion-thumbnail item-left>
+                <!--<img src="img/thumbnail-totoro.png">-->
+            </ion-thumbnail>
+            <h2>My Neighbor Totoro</h2>
+            <p>Hayao Miyazaki • 1988</p>
+            <button ion-button clear item-right>+</button>
+        </ion-item>
+        <ion-item>
+            <ion-thumbnail item-left>
+                <!--<img src="img/thumbnail-totoro.png">-->
+            </ion-thumbnail>
+            <h2>My Neighbor Totoro</h2>
+            <p>Hayao Miyazaki • 1988</p>
+            <button ion-button clear item-right>+</button>
+        </ion-item>
+        <ion-item>
+            <ion-thumbnail item-left>
+                <!--<img src="img/thumbnail-totoro.png">-->
+            </ion-thumbnail>
+            <h2>My Neighbor Totoro</h2>
+            <p>Hayao Miyazaki • 1988</p>
+            <button ion-button clear item-right>+</button>
+        </ion-item>
+        <ion-item>
+            <ion-thumbnail item-left>
+                <!--<img src="img/thumbnail-totoro.png">-->
+            </ion-thumbnail>
+            <h2>My Neighbor Totoro</h2>
+            <p>Hayao Miyazaki • 1988</p>
+            <button ion-button clear item-right>+</button>
+        </ion-item>
+        <ion-item>
+            <ion-thumbnail item-left>
+                <!--<img src="img/thumbnail-totoro.png">-->
+            </ion-thumbnail>
+            <h2>My Neighbor Totoro</h2>
+            <p>Hayao Miyazaki • 1988</p>
+            <button ion-button clear item-right>+</button>
+        </ion-item>
+        <ion-item>
+            <ion-thumbnail item-left>
+                <!--<img src="img/thumbnail-totoro.png">-->
+            </ion-thumbnail>
+            <h2>My Neighbor Totoro</h2>
+            <p>Hayao Miyazaki • 1988</p>
+            <button ion-button clear item-right>+</button>
+        </ion-item>
+        <ion-item>
+            <ion-thumbnail item-left>
+                <!--<img src="img/thumbnail-totoro.png">-->
+            </ion-thumbnail>
+            <h2>My Neighbor Totoro</h2>
+            <p>Hayao Miyazaki • 1988</p>
+            <button ion-button clear item-right>+</button>
+        </ion-item>
+    </ion-list>
+  </div>
+  <!--Banfield-->
+  <div [@slideInOut]="showBanfieldCanillero" class="canillero-list">
+    <ion-fab right top>
+        <button mini ion-fab (click)="showBanfieldCanillero = 'out'">
+            <ion-icon name="close"></ion-icon>
+        </button>
+    </ion-fab>
+    <ion-list>
+        <ion-list-header>
+            <h1 style="padding-top: 15px;">Canillero</h1>
+        </ion-list-header>
+        <ion-item>
+            <ion-thumbnail item-left>
+                <!--<img src="img/thumbnail-totoro.png">-->
+            </ion-thumbnail>
+            <h2>My Neighbor Totoro</h2>
+            <p>Hayao Miyazaki • 1988</p>
+            <button ion-button clear item-right>+</button>
+        </ion-item>
+        <ion-item>
+            <ion-thumbnail item-left>
+                <!--<img src="img/thumbnail-totoro.png">-->
+            </ion-thumbnail>
+            <h2>My Neighbor Totoro</h2>
+            <p>Hayao Miyazaki • 1988</p>
+            <button ion-button clear item-right>+</button>
+        </ion-item>
+        <ion-item>
+            <ion-thumbnail item-left>
+                <!--<img src="img/thumbnail-totoro.png">-->
+            </ion-thumbnail>
+            <h2>My Neighbor Totoro</h2>
+            <p>Hayao Miyazaki • 1988</p>
+            <button ion-button clear item-right>+</button>
+        </ion-item>
+        <ion-item>
+            <ion-thumbnail item-left>
+                <!--<img src="img/thumbnail-totoro.png">-->
+            </ion-thumbnail>
+            <h2>My Neighbor Totoro</h2>
+            <p>Hayao Miyazaki • 1988</p>
+            <button ion-button clear item-right>+</button>
+        </ion-item>
+        <ion-item>
+            <ion-thumbnail item-left>
+                <!--<img src="img/thumbnail-totoro.png">-->
+            </ion-thumbnail>
+            <h2>My Neighbor Totoro</h2>
+            <p>Hayao Miyazaki • 1988</p>
+            <button ion-button clear item-right>+</button>
+        </ion-item>
+        <ion-item>
+            <ion-thumbnail item-left>
+                <!--<img src="img/thumbnail-totoro.png">-->
+            </ion-thumbnail>
+            <h2>My Neighbor Totoro</h2>
+            <p>Hayao Miyazaki • 1988</p>
+            <button ion-button clear item-right>+</button>
+        </ion-item>
+        <ion-item>
+            <ion-thumbnail item-left>
+                <!--<img src="img/thumbnail-totoro.png">-->
+            </ion-thumbnail>
+            <h2>My Neighbor Totoro</h2>
+            <p>Hayao Miyazaki • 1988</p>
+            <button ion-button clear item-right>+</button>
+        </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

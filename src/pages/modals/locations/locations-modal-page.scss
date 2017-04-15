@@ -4,8 +4,75 @@ modal-locations {
     height: 100%;
   }
 
+  ion-fab a {
+    text-decoration: none !important;
+  }
+
+  #openFab .fab-close-icon {
+    bottom: 17px !important;
+    position: absolute !important;
+    right: 22px !important;
+    all: initial;
+    * {
+      all: unset;
+    }
+    position: absolute;
+    font-family: "Ionicons";
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    color: #fff;
+    font-size: 24px;
+    // visibility: hidden;
+    transition: opacity 0.3s linear;
+    opacity:0;
+  }
+
+  #openFab.fab-close-active > .fab-close-icon {
+    transition:opacity 0.35s linear;
+    // visibility: visible;
+    opacity:1;
+  }
+  .fab {
+    contain: layout;
+  }
+
+  .fab-close-active .button-inner {
+    transform: rotateZ(45deg) !important;
+  }
+
+  button[ion-fab] {
+    overflow: visible;
+    position: relative;
+
+    ion-label {
+      position: absolute;
+      top: -8px;
+      right: 40px;
+
+      color: white;
+      background-color: rgba(0,0,0,0.7);
+      line-height: 24px;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+  }
+
+  .canillero-list{
+    height: 100vh;
+    width: 100vw;
+    top: 98px;
+    z-index: 9999;
+    position: fixed;
+    display: inline-flex;
+    overflow: scroll;
+    background-color: white;
+  }
+
   .options-toolbar{
-    min-height: initial;
+    min-height: 42px;
     padding: 0;
   }
 
