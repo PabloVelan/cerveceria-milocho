@@ -12,9 +12,9 @@ import { PointsModalPage } from '../pages/modals/points/points-modal-page';
 import { LocationsModalPage } from '../pages/modals/locations/locations-modal-page';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Device } from '@ionic-native/device';
-import { Sim } from '@ionic-native/sim';
-import { DeviceAccounts } from '@ionic-native/device-accounts';
+// import { Device } from '@ionic-native/device';
+// import { Sim } from '@ionic-native/sim';
+// import { DeviceAccounts } from '@ionic-native/device-accounts';
 import { Facebook } from '@ionic-native/facebook';
 
 @NgModule({
@@ -45,9 +45,6 @@ import { Facebook } from '@ionic-native/facebook';
     PointsModalPage
   ],
   providers: [
-    Device,
-    Sim,
-    DeviceAccounts,
     StatusBar,
     SplashScreen,
     Facebook,
