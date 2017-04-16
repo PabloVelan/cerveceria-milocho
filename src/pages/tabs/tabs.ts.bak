@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
-import { Device } from '@ionic-native/device';
-import { Sim } from '@ionic-native/sim';
-import { DeviceAccounts } from '@ionic-native/device-accounts';
-import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
-import { Platform } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
@@ -26,29 +21,12 @@ export class TabsPage {
   tab3Root: any = ContactPage;
 
   points: number;
-  deviceId: string;
-  deviceEmail: string;
-  faceUser: string;
 
-  constructor(public http: Http, public modalCtrl: ModalController, private device: Device, 
-              private platform: Platform, private sim: Sim, private deviceAccounts: DeviceAccounts,
-              private fb: Facebook) {
+  constructor(public http: Http, public modalCtrl: ModalController) {
     this.http.get('https://www.random.org/integers/?num=1&min=1&max=2000&col=1&base=10&format=plain&rnd=new')
       .map(res => res.json())
       .subscribe(data => {
         this.points = data;
-    });
-
-    platform.ready().then(() => {
-      this.deviceId = this.device.uuid;
-
-      this.deviceAccounts.getEmail()
-        .then(email => this.deviceEmail = email)
-        .catch(error => console.error(error));
-
-      this.fb.login(['public_profile', 'user_friends', 'email'])
-        .then((res: FacebookLoginResponse) => this.faceUser = res.authResponse.userID)
-        .catch(e => console.log('Error logging into Facebook', e));
     });
   }
 
