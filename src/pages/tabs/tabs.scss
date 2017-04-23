@@ -49,39 +49,54 @@ page-tabs {
     background-image: none;
   }
 
-  .card-background-page {
-
-    ion-card {
-      position: relative;
-      text-align: center;
-    }
-
-    ion-card img {
-      filter: blur(3px);
-      transform: scale(1.05);
-    }
-
-    .card-title {
-      position: absolute;
-      top: 36%;
-      font-size: 2.5em;
-      width: 100%;
-      font-weight: bold;
-      color: #fff;
-    }
-
-    .card-subtitle {
-      font-size: 1.5em;
-      position: absolute;
-      top: 52%;
-      width: 100%;
-      color: #fff;
-    }
-
-    .card-md{
-      background: none;
-      border: 0;
-    }
+  .mainBoxImg{
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-size: cover;
+    height: 48vw;
+    width: 48vw;
   }
+
+  .mainBoxSubject{
+    background-color: color($colors, dark);
+    color: color($colors, lightG); 
+    width: 48vw;
+    padding: 10px;
+  }
+
+  // .card-background-page {
+
+  //   ion-card {
+  //     position: relative;
+  //     text-align: center;
+  //   }
+
+  //   ion-card img {
+  //     filter: blur(3px);
+  //     transform: scale(1.05);
+  //   }
+
+  //   .card-title {
+  //     position: absolute;
+  //     top: 36%;
+  //     font-size: 2.5em;
+  //     width: 100%;
+  //     font-weight: bold;
+  //     color: #fff;
+  //   }
+
+  //   .card-subtitle {
+  //     font-size: 1.5em;
+  //     position: absolute;
+  //     top: 52%;
+  //     width: 100%;
+  //     color: #fff;
+  //   }
+
+  //   .card-md{
+  //     background: none;
+  //     border: 0;
+  //   }
+  //}
 }
 

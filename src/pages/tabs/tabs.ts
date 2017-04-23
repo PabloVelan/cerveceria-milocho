@@ -30,6 +30,7 @@ export class TabsPage {
   deviceEmail: string;
   faceUser: string;
   faceEmail: string;
+  facebookLogged: boolean;
 
   constructor(public http: Http, public modalCtrl: ModalController, private platform: Platform, 
               private fb: Facebook) {
@@ -48,29 +49,34 @@ export class TabsPage {
       this.fb.getLoginStatus()
         .then((res: FacebookLoginResponse) => {
           if(res.status != "connected") {
-            this.fb.login(['public_profile', 'email'])
-              .then((res: FacebookLoginResponse) => {
-                this.fb.api('/me', [])
-                  .then((res: any) => this.faceUser = res.name)
-                  .catch(e => console.log('Error logging into Facebook', e));
-                // mandan al server la info del user
-                // this.fb.api('/me?fields=email', [])
-                //   .then((res: any) => this.faceEmail = res.email)
-                //   .catch(e => console.log('Error logging into Facebook', e));
-              })
-              .catch(e => console.log('Error logging into Facebook', e));
+            this.facebookLogged = false;
           } else{
+            this.facebookLogged = true;
             this.fb.api('/me', [])
                   .then((res: any) => this.faceUser = res.name)
                   .catch(e => console.log('Error logging into Facebook', e));
           }
         })
-        .catch(e => console.log('Error logging into Facebook', e));
-
-     
-
-      
+        .catch(e => console.log('Error logging into Facebook', e));      
     });
+  }
+
+  facebookLogin(){
+    this.fb.login(['public_profile', 'email'])
+      .then((res: FacebookLoginResponse) => {
+        this.fb.api('/me', [])
+          .then((res: any) => this.faceUser = res.name)
+          .catch(e => console.log('Error logging into Facebook', e));
+        // mandan al server la info del user
+        // this.fb.api('/me?fields=email', [])
+        //   .then((res: any) => this.faceEmail = res.email)
+        //   .catch(e => console.log('Error logging into Facebook', e));
+      })
+      .catch(e => console.log('Error logging into Facebook', e));
+  }
+
+  facebookLogout(){
+    this.fb.logout().then(() => this.facebookLogged = false);
   }
 
   presentNewsModal() {
