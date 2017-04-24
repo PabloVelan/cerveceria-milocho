@@ -1,6 +1,6 @@
 page-tabs {
   .container {
-      position:fixed;    
+      position:fixed;
       height: 30px;
       width: 90px;
       left: 50%;
@@ -51,6 +51,8 @@ page-tabs {
 
   #boxGrid{
     padding-top: 0;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .header-md::after {
@@ -63,7 +65,7 @@ page-tabs {
 
   .mainBox ion-icon{
     position: absolute;
-    color: color($colors, light); 
+    color: color($colors, light);
     font-size: 125px;
     text-align: initial;
     z-index: 1;
@@ -86,7 +88,7 @@ page-tabs {
 
   .mainBoxSubject{
     background-color: color($colors, darkG);
-    color: color($colors, lightG); 
+    color: color($colors, lightG);
     width: inherit;
     padding: 10px;
     position: relative;
@@ -94,7 +96,7 @@ page-tabs {
   }
 
   .myAccount{
-    color: color($colors, lightG); 
+    color: color($colors, lightG);
     // background: linear-gradient(to right, rgba(50, 61, 80, 0.3) 0%, rgba(140, 163, 128, 0.1) 100%);
     padding: 25px;
     text-shadow: 1px 1px 2px #000;
@@ -110,6 +112,16 @@ page-tabs {
     padding-left: 0;
     padding-right: 0;
     transform: scale(1.12);
+    box-shadow: inset 0px 2px 20px 0px #000;
+  }
+
+  #profileCol{
+    color: color($colors, light);
+    border-bottom: none;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.08);
+    margin-top: 5px;
+    font-size: x-large;
   }
 
   #accountRow{
@@ -118,9 +130,9 @@ page-tabs {
   }
 
   grid{
-    padding: 0; 
+    padding: 0;
   }
-  
+
   // .card-background-page {
 
   //   ion-card {
