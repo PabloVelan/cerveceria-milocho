@@ -13,10 +13,7 @@
     <ion-row id="accountRow">
       <ion-col id="accountCol" col-12>
         <div class="myAccount">
-            <span *ngIf="facebookLogged">{{faceUser}}</span>
-            <span *ngIf="!facebookLogged" (click)="facebookLogin()">
-              <ion-icon name="logo-facebook"></ion-icon>Iniciar Sesión
-            </span>
+            
         </div>
       </ion-col>
     </ion-row>
@@ -25,7 +22,11 @@
   <ion-grid id="boxGrid">
     <ion-row>
       <ion-col id="profileCol" col-12>
-        <ion-icon name="person"></ion-icon>    Mi Perfil
+        <span *ngIf="facebookLogged"><ion-icon name="person"></ion-icon>  {{faceUser}}</span>
+        <span *ngIf="!facebookLogged" (click)="facebookLogin()">
+          <ion-icon name="logo-facebook"></ion-icon>  Iniciar Sesión
+        </span>
+        
       </ion-col>
     </ion-row>
     <ion-row>
