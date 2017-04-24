@@ -81,7 +81,7 @@ page-tabs {
     height: 45vw;
     width: 45vw;
     filter: blur(3px);
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
 
   .mainBoxSubject{
@@ -90,12 +90,14 @@ page-tabs {
     width: inherit;
     padding: 10px;
     position: relative;
+    font-size: larger;
   }
 
   .myAccount{
     color: color($colors, lightG); 
-    background: linear-gradient(to right, rgba(50, 61, 80, 0.3) 0%, rgba(140, 163, 128, 0.1) 100%);
+    // background: linear-gradient(to right, rgba(50, 61, 80, 0.3) 0%, rgba(140, 163, 128, 0.1) 100%);
     padding: 25px;
+    text-shadow: 1px 1px 2px #000;
   }
 
   .myAccount span{
