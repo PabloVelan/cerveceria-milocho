@@ -65,7 +65,10 @@ export class TabsPage {
     this.fb.login(['public_profile', 'email'])
       .then((res: FacebookLoginResponse) => {
         this.fb.api('/me', [])
-          .then((res: any) => this.faceUser = res.name)
+          .then((res: any) => {
+            this.faceUser = res.name;
+            this.facebookLogged = res.name.length > 0;
+          })
           .catch(e => console.log('Error logging into Facebook', e));
         // mandan al server la info del user
         // this.fb.api('/me?fields=email', [])
