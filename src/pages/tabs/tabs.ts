@@ -12,6 +12,7 @@ import { ModalController } from 'ionic-angular';
 import { NewsModalPage } from '../modals/news/news-modal-page';
 import { PointsModalPage } from '../modals/points/points-modal-page';
 import { LocationsModalPage } from '../modals/locations/locations-modal-page';
+import { BeersModalPage } from '../modals/beers/beers-modal-page';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -94,6 +95,11 @@ export class TabsPage {
 
   presentPointsModal() {
     let modal = this.modalCtrl.create(PointsModalPage);
+    modal.present();
+  }
+
+  presentBeersModal() {
+    let modal = this.modalCtrl.create(BeersModalPage);
     modal.present();
   }
 }

@@ -31,9 +31,9 @@
                     <ion-icon name="pin"></ion-icon>
                 </button>
             </a>
-            <button ion-fab color="goldBeer" (click)="showAvellanedaCanillero = 'in'"  style="margin-top: 10px;">
+            <!--<button ion-fab color="goldBeer" (click)="showAvellanedaCanillero = 'in'"  style="margin-top: 10px;">
                 <ion-icon name="beer"></ion-icon>
-            </button>
+            </button>-->
         </ion-fab>
         
         <div class="locations-info">
@@ -42,7 +42,17 @@
     </ion-slide>
 
     <ion-slide class="slide-background" style="background-image: url('assets/img/localbanfield.jpg');">
-        <ion-fab top right #fab>
+        <ion-fab right top>
+            <a href="geo:?q=Juan+B.+Palaá+592,+B1870ATJ+Avellaneda,+Buenos+Aires,+Argentina" target="_system">
+                <button ion-fab>
+                    <ion-icon name="pin"></ion-icon>
+                </button>
+            </a>
+            <!--<button ion-fab color="goldBeer" (click)="showAvellanedaCanillero = 'in'"  style="margin-top: 10px;">
+                <ion-icon name="beer"></ion-icon>
+            </button>-->
+        </ion-fab>
+        <!--<ion-fab top right #fab>
             <button ion-fab id="openFab"><ion-icon name="add"></ion-icon></button>
             <ion-fab-list side="bottom">
                 <a href="geo:?q=Juan+B.+Palaá+592,+B1870ATJ+Avellaneda,+Buenos+Aires,+Argentina" target="_system">
@@ -56,7 +66,7 @@
                     <ion-icon name="beer"></ion-icon>
                 </button>
             </ion-fab-list>
-        </ion-fab>
+        </ion-fab>-->
         <div class="locations-info">
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
         </div>

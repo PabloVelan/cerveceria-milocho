@@ -10,6 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { NewsModalPage } from '../pages/modals/news/news-modal-page';
 import { PointsModalPage } from '../pages/modals/points/points-modal-page';
 import { LocationsModalPage } from '../pages/modals/locations/locations-modal-page';
+import { BeersModalPage } from '../pages/modals/beers/beers-modal-page';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 // import { Device } from '@ionic-native/device';
@@ -26,7 +27,8 @@ import { Facebook } from '@ionic-native/facebook';
     TabsPage,
     NewsModalPage,
     LocationsModalPage,
-    PointsModalPage
+    PointsModalPage,
+    BeersModalPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { Facebook } from '@ionic-native/facebook';
     TabsPage,
     NewsModalPage,
     LocationsModalPage,
-    PointsModalPage
+    PointsModalPage,
+    BeersModalPage
   ],
   providers: [
     StatusBar,

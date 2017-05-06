@@ -1,0 +1,45 @@
+modal-beers {
+  .segment-button {
+    border-color: color($colors, lightbrown) !important;
+    color: color($colors, lightbrown) !important;
+  }
+
+  .slide-background {
+    background-repeat:no-repeat; 
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .scroll-content {
+    padding: 0 !important;
+  }
+
+  .slide-background{
+    width: 100%;
+  }
+
+  .visible{
+    max-height: 300px;
+    transition: max-height 0.30s ease-in;
+  }
+
+  .hidden{
+    max-height: 0;
+    transition: max-height 0.20s ease-out;
+  }
+
+  ion-list {
+    ion-icon  {
+      font-size: 1.8rem;
+      padding: 0;
+      text-align: center;
+      position: absolute;
+      right: 10px;
+      top: 3px;
+      &:before {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
