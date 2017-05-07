@@ -35,11 +35,11 @@ export class TabsPage {
 
   constructor(public http: Http, public modalCtrl: ModalController, private platform: Platform, 
               private fb: Facebook) {
-    this.http.get('https://www.random.org/integers/?num=1&min=1&max=2000&col=1&base=10&format=plain&rnd=new')
-      .map(res => res.json())
-      .subscribe(data => {
-        this.points = data;
-    });
+    // this.http.get('https://www.random.org/integers/?num=1&min=1&max=2000&col=1&base=10&format=plain&rnd=new')
+    //   .map(res => res.json())
+    //   .subscribe(data => {
+    //     this.points = data;
+    // });
 
     platform.ready().then(() => {
       // this.deviceId = this.device.uuid;

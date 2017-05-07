@@ -14,10 +14,10 @@
 
 <ion-content>
 <ion-list>
-  <button ion-item *ngFor="let item of items" (click)="showAlert(item.message)">
-    <h2>{{item.date}}</h2>
-    <ion-icon *ngIf="item.icon" name="{{item.icon}}" item-right></ion-icon>
-    {{item.message}}
+  <button ion-item *ngFor="let item of items" (click)="showAlert(item.Message)">
+    <h2>{{item.Date  | date:"dd/MM/yyyy"}}</h2>
+    <!--<ion-icon *ngIf="item.icon" name="{{item.icon}}" item-right></ion-icon> PARA CUANDO ESTE EL PUSH -->
+    {{item.Message}}
   </button>  
 </ion-list>
 </ion-content>

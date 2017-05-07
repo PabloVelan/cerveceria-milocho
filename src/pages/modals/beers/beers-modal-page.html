@@ -26,13 +26,13 @@
   <ion-slides #mySlider (ionSlideDidChange)="onSlideChanged($event)">
     <!--<ion-slide class="slide-background" style="background-image: url('assets/img/localavellaneda.jpg');">-->
     <ion-slide class="slide-background">
-      <ion-list>
-        <ion-item *ngFor="let item of craftBeers; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
+      <ion-list inset>
+        <ion-item *ngFor="let item of craftBeers; let i=index" text-wrap (click)="toggleGroup(item.Name.concat(i))" [ngClass]="{active: isGroupShown(i)}">
           <h3>
-             {{item.Name}}
+            {{item.Name}}
             <ion-icon color="success" item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
           </h3>
-          <div [class.visible]="isGroupShown(i)" [class.hidden]="!isGroupShown(i)">
+          <div [class.visible]="isGroupShown(item.Name.concat(i))" [class.hidden]="!isGroupShown(item.Name.concat(i))">
             {{item.Description}}
             <ion-row>
               <ion-col col-3>Alc</ion-col>
@@ -40,7 +40,7 @@
               <ion-col col-3>Srm</ion-col>
               <ion-col col-3>Og</ion-col>
             </ion-row>
-            
+
             <ion-row>
               <ion-col col-3> {{item.TechnicalData.Alc}}</ion-col>
               <ion-col col-3> {{item.TechnicalData.Ibu}}</ion-col>
@@ -49,7 +49,7 @@
             </ion-row>
             Encontrala en
             <ion-row>
-              <ion-col col-6 *ngFor="let store of item.Avialability">{{store.Name}}</ion-col>
+              <ion-badge *ngFor="let store of item.Avialability">{{store.Name}}</ion-badge>
             </ion-row>
           </div>
         </ion-item>
@@ -57,11 +57,38 @@
     </ion-slide>
 
     <ion-slide class="slide-background">
-      <ion-list>
-        <button ion-item *ngFor="let item of bottleBeers">
-          <h2>{{item.Name}}</h2>
-          {{item.Description}}
-        </button>
+      <ion-list inset>
+        <div *ngFor="let itemCountry of bottleBeers;">
+          <ion-list-header>
+            {{itemCountry.Name}}
+          </ion-list-header>
+          <ion-item *ngFor="let item of itemCountry.Beers; let i=index" text-wrap (click)="toggleGroup(item.Name.concat(i))" [ngClass]="{active: isGroupShown(i)}">
+            <h3>
+              {{item.Name}}
+              <ion-icon color="success" item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
+            </h3>
+            <div [class.visible]="isGroupShown(item.Name.concat(i))" [class.hidden]="!isGroupShown(item.Name.concat(i))">
+              {{item.Description}}
+              <ion-row>
+                <ion-col col-3>Alc</ion-col>
+                <ion-col col-3>Ibu</ion-col>
+                <ion-col col-3>Srm</ion-col>
+                <ion-col col-3>Og</ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-col col-3> {{item.TechnicalData.Alc}}</ion-col>
+                <ion-col col-3> {{item.TechnicalData.Ibu}}</ion-col>
+                <ion-col col-3> {{item.TechnicalData.Srm}}</ion-col>
+                <ion-col col-3> {{item.TechnicalData.Og}}</ion-col>
+              </ion-row>
+              Encontrala en
+              <ion-row>
+                <ion-badge *ngFor="let store of item.Avialability">{{store.Name}}</ion-badge>
+              </ion-row>
+            </div>
+          </ion-item>
+        </div>
       </ion-list>
     </ion-slide>
   </ion-slides>

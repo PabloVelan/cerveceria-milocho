@@ -18,6 +18,11 @@ modal-beers {
     width: 100%;
   }
 
+  .list-header-md {
+    margin-bottom: 0 !important;
+    margin-top: 10px !important;
+  }
+
   .visible{
     max-height: 300px;
     transition: max-height 0.30s ease-in;

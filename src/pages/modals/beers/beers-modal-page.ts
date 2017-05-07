@@ -1,5 +1,5 @@
 import { Component, ViewChild, trigger, transition, style, animate, state } from '@angular/core';
-
+import { Http } from '@angular/http';
 import { NavController, ModalController, Platform, NavParams, ViewController, AlertController, Slides } from 'ionic-angular';
 
 @Component({
@@ -18,6 +18,7 @@ import { NavController, ModalController, Platform, NavParams, ViewController, Al
     ])
   ]
 })
+
 export class BeersModalPage {
   @ViewChild('mySlider') slider: Slides;
   selectedSegment: string;
@@ -26,7 +27,11 @@ export class BeersModalPage {
   craftBeers: Array<any>;
   shownGroup = null;
 
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public viewCtrl: ViewController, public alertCtrl: AlertController,
+    public http: Http) {
+
+    class BottleBeer{ Name: string; Beers: Array<any>; }
+    
     this.bottleBeers = new Array();
     this.craftBeers = new Array();
 
@@ -42,22 +47,33 @@ export class BeersModalPage {
       }
     ];
 
-    let craftBeer1 = { 
-      Name: 'Cream Ale', 
-      Description: 'Cerveza rubia, ligera y cristalina. De gran tomabilidad, bajo amargor. Ideal para acompañar cualquier comida.',
-      TechnicalData: { Alc: 5, Ibu: 20, Srm: 4, Og: 1050 },
-      Brewer: { Name: 'Berlina' },
-      Avialability: [ { Name: 'Avellaneda'}, { Name: 'Banfield'} ] 
-    };
-    let craftBeer2 = { 
-      Name: 'IPA', 
-      Description: 'Cerveza con mucho lupulo que va como trompada',
-      TechnicalData: { Alc: 6, Ibu: 30, Srm: 7, Og: 1760 },
-      Brewer: { Name: 'Recifes' },
-      Avialability: [ { Name: 'Avellaneda'}] 
-    };
-    this.craftBeers.push(craftBeer1);
-    this.craftBeers.push(craftBeer2);
+    this.http.get('http://localhost:63629/api/data/GetAllCraftBeers')
+      .map(res => res.json())
+      .subscribe(data => {
+        this.craftBeers = data;
+    });
+
+    this.http.get('http://localhost:63629/api/data/GetAllBottleBeers')
+      .map(res => res.json())
+      .subscribe(data => {
+        for(let i = 0; i < data.length; i++) {
+          let country;
+          country = data[i].Country.Name;
+
+          if(!this.bottleBeers[country]) this.bottleBeers[country] = [];
+
+          this.bottleBeers[country].push(data[i]);
+        }
+        
+        let bottleBeersAux = this.bottleBeers;
+
+        this.bottleBeers = Object.keys(bottleBeersAux).map(function (key) { 
+          let c = new BottleBeer(); 
+          c.Name = key; 
+          c.Beers = bottleBeersAux[key]; 
+          return c; 
+        });
+    });
     
   }
 
@@ -89,6 +105,8 @@ export class BeersModalPage {
     }
     const currentSlide = this.slides[index];
     this.selectedSegment = currentSlide.id;
+
+    this.shownGroup = null;
   }
 
   toggleGroup(group) {
@@ -98,7 +116,7 @@ export class BeersModalPage {
         this.shownGroup = group;
     }
   };
-  
+
   isGroupShown(group) {
       return this.shownGroup === group;
   };
