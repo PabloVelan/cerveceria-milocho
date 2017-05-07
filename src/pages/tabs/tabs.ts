@@ -13,6 +13,8 @@ import { NewsModalPage } from '../modals/news/news-modal-page';
 import { PointsModalPage } from '../modals/points/points-modal-page';
 import { LocationsModalPage } from '../modals/locations/locations-modal-page';
 import { BeersModalPage } from '../modals/beers/beers-modal-page';
+import { TriviaBenefitsModalPage } from '../modals/triviaBenefits/triviaBenefits-modal-page';
+
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -100,6 +102,11 @@ export class TabsPage {
 
   presentBeersModal() {
     let modal = this.modalCtrl.create(BeersModalPage);
+    modal.present();
+  }
+
+  presentTriviaBenefitsModal() {
+    let modal = this.modalCtrl.create(TriviaBenefitsModalPage);
     modal.present();
   }
 }

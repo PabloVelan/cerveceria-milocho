@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Beneficio del día
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cerrar</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content *ngIf="todaysBenefit">
+      Hoy jugás por {{todaysBenefit.Description}}
+    </ion-card-content>
+    <ion-card-content *ngIf="!todaysBenefit">
+      Mantenete atento que en cualquier momento podrás jugar por beneficios
+    </ion-card-content>
+  </ion-card>
+
+  <ion-slides pager paginationType="progress" *ngIf="todaysBenefit">
+    <ion-slide class="swiper-no-swiping" *ngFor="let item of trivia; let i=index">
+      <h2>{{item.Question}}</h2>
+      <div>
+        <button [disabled]="optionSelected" *ngIf="item.A" ion-button block [class.incorrect]="'A' == incorrectSelected" [class.correct]="'A' == correctSelected" (click)="checkAnswer('A', item, i)">{{item.A}}</button>
+        <button [disabled]="optionSelected" *ngIf="item.B" ion-button block [class.incorrect]="'B' == incorrectSelected" [class.correct]="'B' == correctSelected" (click)="checkAnswer('B', item, i)">{{item.B}}</button>
+        <button [disabled]="optionSelected" *ngIf="item.C" ion-button block [class.incorrect]="'C' == incorrectSelected" [class.correct]="'C' == correctSelected" (click)="checkAnswer('C', item, i)">{{item.C}}</button>
+        <button [disabled]="optionSelected" *ngIf="item.D" ion-button block [class.incorrect]="'D' == incorrectSelected" [class.correct]="'D' == correctSelected" (click)="checkAnswer('D', item, i)">{{item.D}}</button>
+        <button [disabled]="optionSelected" *ngIf="item.E" ion-button block [class.incorrect]="'E' == incorrectSelected" [class.correct]="'E' == correctSelected" (click)="checkAnswer('E', item, i)">{{item.E}}</button>
+      </div>
+      <button *ngIf="optionSelected && correctSelected != ''" ion-button outline (click)="next(i)">{{i == 9 ? "Codigo" : "Siguiente"}}</button>
+      <button *ngIf="optionSelected && incorrectSelected != ''" ion-button outline (click)="restart()">Volvé a intentarlo</button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

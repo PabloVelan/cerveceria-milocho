@@ -11,12 +11,14 @@ import { NewsModalPage } from '../pages/modals/news/news-modal-page';
 import { PointsModalPage } from '../pages/modals/points/points-modal-page';
 import { LocationsModalPage } from '../pages/modals/locations/locations-modal-page';
 import { BeersModalPage } from '../pages/modals/beers/beers-modal-page';
+import { TriviaBenefitsModalPage } from '../pages/modals/triviaBenefits/triviaBenefits-modal-page';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 // import { Device } from '@ionic-native/device';
 // import { Sim } from '@ionic-native/sim';
 // import { DeviceAccounts } from '@ionic-native/device-accounts';
 import { Facebook } from '@ionic-native/facebook';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -28,12 +30,14 @@ import { Facebook } from '@ionic-native/facebook';
     NewsModalPage,
     LocationsModalPage,
     PointsModalPage,
-    BeersModalPage
+    BeersModalPage,
+    TriviaBenefitsModalPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -45,7 +49,8 @@ import { Facebook } from '@ionic-native/facebook';
     NewsModalPage,
     LocationsModalPage,
     PointsModalPage,
-    BeersModalPage
+    BeersModalPage,
+    TriviaBenefitsModalPage
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,36 @@
+modal-triviaBenefits {
+  ion-slides {
+      height: inherit !important; 
+  }
+
+  .button-outline-md {
+    border-color: color($colors, lightbrown);
+    color: color($colors, lightbrown);
+  }
+  
+  .correct{
+    background-color: limegreen;
+    opacity: 1 !important;
+  }
+
+  .incorrect{
+    background-color: red;
+    opacity: 1 !important;
+  }
+
+  .wonToast {
+    content: "\f305";
+    font-family: Ionicons !important;
+    font-size: xx-large !important;
+  }
+
+  ion-slide h2 {
+    color: color($colors, lightG);
+  }
+
+  .swiper-pagination-progressbar
+  {
+    background-color: color($colors, goldBeer) !important;
+  }
+}
+
