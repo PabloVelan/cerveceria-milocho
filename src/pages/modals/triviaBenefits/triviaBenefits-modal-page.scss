@@ -13,12 +13,12 @@ modal-triviaBenefits {
   }
   
   .correct{
-    background-color: limegreen;
+    background-color: limegreen !important;
     opacity: 1 !important;
   }
 
   .incorrect{
-    background-color: red;
+    background-color: red !important;
     opacity: 1 !important;
   }
 
@@ -30,11 +30,25 @@ modal-triviaBenefits {
 
   ion-slide h2 {
     color: color($colors, lightG);
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px;
   }
 
+  ion-slide .button-block-md{
+    background-color: rgb(96, 25, 160);
+  }
+ 
   .swiper-pagination-progressbar
   {
     background-color: color($colors, goldBeer) !important;
   }
+
+  .benefitDescription {
+    margin: 0;
+    width: 100%;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.46);
+    color: gainsboro;
+}
 }
 
