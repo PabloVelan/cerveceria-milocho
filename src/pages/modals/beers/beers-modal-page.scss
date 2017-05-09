@@ -1,4 +1,8 @@
 modal-beers {
+  .scroll-content{
+        background: linear-gradient(118deg, rgba(46,46,46,1) 0%,rgba(30,30,30,1) 50%,rgba(24,24,24,1) 50%,rgba(40,40,40,1) 100%);
+  }
+
   .segment-button {
     border-color: color($colors, lightbrown) !important;
     color: color($colors, lightbrown) !important;
@@ -9,6 +13,11 @@ modal-beers {
     background-size: cover;
     background-position: center center;
   }
+
+  .technicalData, .list-header {
+    text-transform: uppercase !important;
+    font-weight: bold !important;
+}
 
   .scroll-content {
     padding: 0 !important;
@@ -31,6 +40,15 @@ modal-beers {
   .hidden{
     max-height: 0;
     transition: max-height 0.20s ease-out;
+  }
+
+  ion-list .item, .item-header {
+        background-color: rgba(0, 0, 0, 0.46) !important;
+    color: gainsboro;
+  }
+
+  .item-inner {
+    border: none !important;
   }
 
   ion-list {

@@ -67,9 +67,10 @@
               {{item.Name}}
               <ion-icon color="success" item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
             </h3>
+            
             <div [class.visible]="isGroupShown(item.Name.concat(i))" [class.hidden]="!isGroupShown(item.Name.concat(i))">
               {{item.Description}}
-              <ion-row>
+              <ion-row class="technicalData">
                 <ion-col col-3>Alc</ion-col>
                 <ion-col col-3>Ibu</ion-col>
                 <ion-col col-3>Srm</ion-col>
