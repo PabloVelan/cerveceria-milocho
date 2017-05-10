@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Http, RequestOptions } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 // import { Device } from '@ionic-native/device';
 // import { Sim } from '@ionic-native/sim';
 // import { DeviceAccounts } from '@ionic-native/device-accounts';
@@ -73,17 +73,17 @@ export class TabsPage {
           .then((res: any) => {
             this.faceEmail = res.email;
             
-            // var headers = new Headers();
-            // headers.append("Accept", 'application/json');
-            // headers.append('Content-Type', 'application/json' );
-            // let options = new RequestOptions({ headers: headers });
+            var headers = new Headers();
+            headers.append("Accept", 'application/json; charset=utf-8');
+            headers.append('Content-Type', 'application/x-www-form-urlencoded' );
+            let options = new RequestOptions({ headers: headers });
 
             let postParams = {
               name: this.faceUser,
               email: this.faceEmail
             }
             
-            this.http.post('http://168.181.185.53/api/data/AddOrUpdateClient', postParams)
+            this.http.post('http://168.181.185.53/api/data/AddOrUpdateClient', postParams, options)
               .subscribe(data => {
                 console.log('update ok');
               }, error => {
