@@ -47,13 +47,13 @@ export class BeersModalPage {
       }
     ];
 
-    this.http.get('http://localhost:63629/api/data/GetAllCraftBeers')
+    this.http.get('http://168.181.185.53/api/data/GetAllCraftBeers')
       .map(res => res.json())
       .subscribe(data => {
         this.craftBeers = data;
     });
 
-    this.http.get('http://localhost:63629/api/data/GetAllBottleBeers')
+    this.http.get('http://168.181.185.53/api/data/GetAllBottleBeers')
       .map(res => res.json())
       .subscribe(data => {
         for(let i = 0; i < data.length; i++) {

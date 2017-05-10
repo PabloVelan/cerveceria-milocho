@@ -13,7 +13,7 @@ export class NewsModalPage {
     public http: Http) {
     this.items = new Array();
 
-    this.http.get('http://localhost:63629/api/data/GetLastNotifications')
+    this.http.get('http://168.181.185.53/api/data/GetLastNotifications')
       .map(res => res.json())
       .subscribe(data => {
         this.items = data;

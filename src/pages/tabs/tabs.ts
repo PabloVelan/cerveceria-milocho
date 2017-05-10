@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, RequestOptions } from '@angular/http';
 // import { Device } from '@ionic-native/device';
 // import { Sim } from '@ionic-native/sim';
 // import { DeviceAccounts } from '@ionic-native/device-accounts';
@@ -37,11 +37,6 @@ export class TabsPage {
 
   constructor(public http: Http, public modalCtrl: ModalController, private platform: Platform, 
               private fb: Facebook) {
-    // this.http.get('https://www.random.org/integers/?num=1&min=1&max=2000&col=1&base=10&format=plain&rnd=new')
-    //   .map(res => res.json())
-    //   .subscribe(data => {
-    //     this.points = data;
-    // });
 
     platform.ready().then(() => {
       // this.deviceId = this.device.uuid;
@@ -74,9 +69,28 @@ export class TabsPage {
           })
           .catch(e => console.log('Error logging into Facebook', e));
         // mandan al server la info del user
-        // this.fb.api('/me?fields=email', [])
-        //   .then((res: any) => this.faceEmail = res.email)
-        //   .catch(e => console.log('Error logging into Facebook', e));
+        this.fb.api('/me?fields=email', [])
+          .then((res: any) => {
+            this.faceEmail = res.email;
+            
+            // var headers = new Headers();
+            // headers.append("Accept", 'application/json');
+            // headers.append('Content-Type', 'application/json' );
+            // let options = new RequestOptions({ headers: headers });
+
+            let postParams = {
+              name: this.faceUser,
+              email: this.faceEmail
+            }
+            
+            this.http.post('http://168.181.185.53/api/data/AddOrUpdateClient', postParams)
+              .subscribe(data => {
+                console.log('update ok');
+              }, error => {
+                console.log(error);// Error getting the data
+              });
+          })
+          .catch(e => console.log('Error logging into Facebook', e));
       })
       .catch(e => console.log('Error logging into Facebook', e));
   }

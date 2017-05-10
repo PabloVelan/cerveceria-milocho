@@ -23,7 +23,7 @@ export class TriviaBenefitsModalPage {
     public http: Http, private toastCtrl: ToastController, private storage: Storage) {
 
       storage.ready().then(() => {
-        this.http.get('http://localhost:63629/api/data/TodaysBenefit')
+        this.http.get('http://168.181.185.53/api/data/TodaysBenefit')
           .map(res => res.json())
           .subscribe(data => {
             let storedWonBenefitId;
@@ -45,7 +45,7 @@ export class TriviaBenefitsModalPage {
   }
 
   getTrivia() {
-    this.http.get('http://localhost:63629/api/data/GetTriviaQuestions')
+    this.http.get('http://168.181.185.53/api/data/GetTriviaQuestions')
       .map(res => res.json())
       .subscribe(data => {
         this.trivia = data;
