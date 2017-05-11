@@ -16,6 +16,7 @@ import { BeersModalPage } from '../modals/beers/beers-modal-page';
 import { TriviaBenefitsModalPage } from '../modals/triviaBenefits/triviaBenefits-modal-page';
 
 import 'rxjs/add/operator/map';
+import 'rxjs/Rx';
 
 @Component({
   selector: 'page-tabs',
@@ -66,29 +67,27 @@ export class TabsPage {
           .then((res: any) => {
             this.faceUser = res.name;
             this.facebookLogged = res.name.length > 0;
-          })
-          .catch(e => console.log('Error logging into Facebook', e));
-        // mandan al server la info del user
-        this.fb.api('/me?fields=email', [])
-          .then((res: any) => {
-            this.faceEmail = res.email;
-            
-            var headers = new Headers();
-            headers.append("Accept", 'application/json; charset=utf-8');
-            headers.append('Content-Type', 'application/x-www-form-urlencoded' );
-            let options = new RequestOptions({ headers: headers });
 
-            let postParams = {
-              name: this.faceUser,
-              email: this.faceEmail
-            }
-            
-            this.http.post('http://168.181.185.53/api/data/AddOrUpdateClient', postParams, options)
-              .subscribe(data => {
-                console.log('update ok');
-              }, error => {
-                console.log(error);// Error getting the data
-              });
+            // mandan al server la info del user
+            this.fb.api('/me?fields=email', [])
+              .then((res: any) => {
+                this.faceEmail = res.email;
+                
+                var headers = new Headers();
+                headers.append("Accept", 'application/json; charset=utf-8');
+                headers.append('Content-Type', 'application/x-www-form-urlencoded' );
+                let options = new RequestOptions({ headers: headers });
+
+                let body = 'name=' + this.faceUser + '&email=' +  this.faceEmail;
+
+                this.http.post('http://168.181.185.53/api/data/AddOrUpdateClient', body, options)
+                  .subscribe(data => {
+                    console.log('update ok');
+                  }, error => {
+                    console.log(error);// Error getting the data
+                  });
+              })
+              .catch(e => console.log('Error logging into Facebook', e));
           })
           .catch(e => console.log('Error logging into Facebook', e));
       })
