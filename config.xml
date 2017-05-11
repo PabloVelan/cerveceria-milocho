@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.milocho.Cerv1870" android-packageName="com.milocho.Cerv1870" ios-CFBundleIdentifier="com.milocho.Cerv1870" version="0.0.1" ios-CFBundleVersion="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.milocho.Cerv1870" android-packageName="com.milocho.Cerv1870" ios-CFBundleIdentifier="com.milocho.Cerv1870" version="0.0.2" ios-CFBundleVersion="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Cervecería 1870</name>
-  <description>An awesome Ionic/Cordova app.</description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+  <description>Aplicacion oficial de Cerveceria 1870.</description>
+  <author email="hi@ionicframework" href="http://ionicframework.com/">Cerveceria 1870</author>
   <content src="index.html"/>
   <access origin="*"/>
   <allow-navigation href="http://ionic.local/*"/>
