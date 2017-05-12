@@ -33,7 +33,7 @@ modal-beers {
   }
 
   .visible{
-    max-height: 300px;
+    max-height: 100vh;
     transition: max-height 0.30s ease-in;
   }
 
@@ -44,7 +44,11 @@ modal-beers {
 
   ion-slide {
     overflow: scroll;
-}
+  }
+
+  .slide-zoom {
+    height: inherit;
+  }
 
   ion-list .item, .item-header {
         background-color: rgba(0, 0, 0, 0.46) !important;
