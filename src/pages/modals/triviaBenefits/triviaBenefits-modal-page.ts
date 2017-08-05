@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { Http } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import {
   NavController, ModalController,
   Platform, NavParams, ToastController,
@@ -14,45 +14,39 @@ import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
   selector: 'modal-triviaBenefits',
   templateUrl: 'triviaBenefits-modal-page.html'
 })
+
 export class TriviaBenefitsModalPage {
   todaysBenefit: any;
   trivia: Array<any>;
   incorrectSelected = '';
   correctSelected = '';
   optionSelected: boolean;
+  prize: any;
   @ViewChild(Slides) slides: Slides;
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, public alertCtrl: AlertController,
-    public http: Http, private toastCtrl: ToastController, private storage: Storage, private fb: Facebook) {
+              public http: Http, private toastCtrl: ToastController, private storage: Storage, private fb: Facebook) {
+    storage.ready().then(() => {
+      this.http.get('http://168.181.185.53/api/data/TodaysBenefit')
+        .map(res => res.json())
+        .subscribe(data => {
+          let storedWonBenefitId;
+          this.todaysBenefit = data;
+          
+          if (this.todaysBenefit) {
+            storage.get('wonBenefitId').then((val) => {
+              storedWonBenefitId = val;
 
-    this.fb.getLoginStatus()
-      .then((res: FacebookLoginResponse) => {
-        if (res.status != "connected") {
-          storage.ready().then(() => {
-            this.http.get('http://168.181.185.53/api/data/TodaysBenefit')
-              .map(res => res.json())
-              .subscribe(data => {
-                let storedWonBenefitId;
-                this.todaysBenefit = data;
-                if (this.todaysBenefit) {
-                  storage.get('wonBenefitId').then((val) => {
-                    storedWonBenefitId = val;
-
-                    if (this.todaysBenefit.BenefitId == storedWonBenefitId) {
-                      storage.get('wonBenefitPrizeCode').then((val) => { this.showAlert("Tu codigo de premio de hoy es: " + val); });
-                    }
-                    else {
-                      this.getTrivia();
-                    }
-                  });
-                };
-              });
-          });
-        } else {
-          this.showAlert("Iniciá sesión y podrás participar por los premios que tenemos para vos!");
-        }
-      })
-      .catch(e => console.log('Error logging into Facebook', e));
+              if (this.todaysBenefit.BenefitId == storedWonBenefitId) {
+                storage.get('wonBenefitPrizeDescription').then((val) => { this.showAlert("Hoy te ganaste: " + val); });
+              }
+              else {
+                this.getTrivia();
+              }
+            });
+          }
+        });
+      });
   }
 
   getTrivia() {
@@ -69,8 +63,7 @@ export class TriviaBenefitsModalPage {
       this.correctSelected = selectedOption;
       if (slide == 9) {
         this.storage.set('wonBenefitId', this.todaysBenefit.BenefitId);
-        this.storage.set('wonBenefitPrizeCode', this.todaysBenefit.PrizeCode);
-        this.presentWonToast();
+        this.markRafflePrizeWon();        
       }
     }
     else {
@@ -87,15 +80,10 @@ export class TriviaBenefitsModalPage {
   }
 
   next(slide) {
-    if (slide == 9) {
-      this.showCodeAlert();
-    }
-    else {
-      this.slides.slideNext(500, false);
-      this.optionSelected = false;
-      this.incorrectSelected = "";
-      this.correctSelected = "";
-    }
+    this.slides.slideNext(500, false);
+    this.optionSelected = false;
+    this.incorrectSelected = "";
+    this.correctSelected = "";
   }
 
   dismiss() {
@@ -120,14 +108,33 @@ export class TriviaBenefitsModalPage {
     alert.present();
   }
 
-  presentWonToast() {
+  presentWonToast(prize) {
     let toast = this.toastCtrl.create({
-      message: '¡GANASTE!',
+      message: '¡GANASTE! Pasa por milocho y canjea tu premio: ' + prize,
       position: 'bottom',
       closeButtonText: 'OK',
       cssClass: 'wonToast',
       showCloseButton: true
     });
     toast.present();
+  }
+
+  markRafflePrizeWon() {
+    var headers = new Headers();
+    let body = new String();
+    headers.append("Accept", 'application/json; charset=utf-8');
+    headers.append('Content-Type', 'application/x-www-form-urlencoded' );
+    let options = new RequestOptions({ headers: headers });
+
+    this.storage.get('clientEmail').then((val) => { 
+      body = 'email=' + val;
+
+      this.http.post('http://168.181.185.53/api/data/MarkRafflePrizeWon', body, options)
+        .subscribe(data => {
+          this.storage.set('wonBenefitPrizeDescription', data.json());
+          this.prize = data.json();
+          this.presentWonToast(this.prize);
+        });
+    });    
   }
 }

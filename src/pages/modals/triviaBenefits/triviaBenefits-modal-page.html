@@ -15,7 +15,7 @@
 <ion-content>
   <ion-card class="benefitDescription">
     <ion-card-content *ngIf="todaysBenefit">
-      Hoy jugás por {{todaysBenefit.Description}}
+      Hoy tenemos premios para vos. Jugá y ganá!
     </ion-card-content>
     <ion-card-content *ngIf="!todaysBenefit">
       Mantenete atento que en cualquier momento podrás jugar por más beneficios
@@ -32,7 +32,7 @@
         <button [disabled]="optionSelected" *ngIf="item.D" ion-button block [class.incorrect]="'D' == incorrectSelected" [class.correct]="'D' == correctSelected" (click)="checkAnswer('D', item, i)">{{item.D}}</button>
         <button [disabled]="optionSelected" *ngIf="item.E" ion-button block [class.incorrect]="'E' == incorrectSelected" [class.correct]="'E' == correctSelected" (click)="checkAnswer('E', item, i)">{{item.E}}</button>
       </div>
-      <button *ngIf="optionSelected && correctSelected != ''" ion-button outline (click)="next(i)">{{i == 9 ? "Codigo" : "Siguiente"}}</button>
+      <button *ngIf="optionSelected && correctSelected != '' && i < 9" ion-button outline (click)="next(i)">Siguiente</button>
       <button *ngIf="optionSelected && incorrectSelected != ''" ion-button outline (click)="restart()">Volvé a intentarlo</button>
     </ion-slide>
   </ion-slides>
