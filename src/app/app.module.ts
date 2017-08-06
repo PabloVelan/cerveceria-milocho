@@ -19,6 +19,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 // import { DeviceAccounts } from '@ionic-native/device-accounts';
 import { Facebook } from '@ionic-native/facebook';
 import { IonicStorageModule } from '@ionic/storage';
+import { environment } from './environment';
 
 @NgModule({
   declarations: [

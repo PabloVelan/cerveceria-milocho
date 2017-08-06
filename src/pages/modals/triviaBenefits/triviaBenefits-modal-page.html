@@ -32,6 +32,12 @@
         <button [disabled]="optionSelected" *ngIf="item.D" ion-button block [class.incorrect]="'D' == incorrectSelected" [class.correct]="'D' == correctSelected" (click)="checkAnswer('D', item, i)">{{item.D}}</button>
         <button [disabled]="optionSelected" *ngIf="item.E" ion-button block [class.incorrect]="'E' == incorrectSelected" [class.correct]="'E' == correctSelected" (click)="checkAnswer('E', item, i)">{{item.E}}</button>
       </div>
+      <div *ngIf="!optionSelected" class="countdown">
+        <div class="countdown-number">{{countDownText}}</div>
+        <svg>
+          <circle r="18" cx="20" cy="20"></circle>
+        </svg>
+      </div>
       <button *ngIf="optionSelected && correctSelected != '' && i < 9" ion-button outline (click)="next(i)">Siguiente</button>
       <button *ngIf="optionSelected && incorrectSelected != ''" ion-button outline (click)="restart()">Volvé a intentarlo</button>
     </ion-slide>

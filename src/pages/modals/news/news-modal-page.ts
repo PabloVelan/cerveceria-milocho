@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { NavController, ModalController, Platform, NavParams, ViewController, AlertController } from 'ionic-angular';
+import { environment } from '../../../app/environment';
 
 @Component({
   selector: 'modal-news',
@@ -13,7 +14,7 @@ export class NewsModalPage {
     public http: Http) {
     this.items = new Array();
 
-    this.http.get('http://168.181.185.53/api/data/GetLastNotifications')
+    this.http.get(environment.apiUrl + 'data/GetLastNotifications')
       .map(res => res.json())
       .subscribe(data => {
         this.items = data;

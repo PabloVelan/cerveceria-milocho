@@ -9,6 +9,7 @@ import {
 } from 'ionic-angular';
 
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
+import { environment } from '../../../app/environment';
 
 @Component({
   selector: 'modal-triviaBenefits',
@@ -22,12 +23,14 @@ export class TriviaBenefitsModalPage {
   correctSelected = '';
   optionSelected: boolean;
   prize: any;
+  countDownText: any;
+  counterInterval: any;
   @ViewChild(Slides) slides: Slides;
-
+  
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, public alertCtrl: AlertController,
               public http: Http, private toastCtrl: ToastController, private storage: Storage, private fb: Facebook) {
     storage.ready().then(() => {
-      this.http.get('http://168.181.185.53/api/data/TodaysBenefit')
+      this.http.get(environment.apiUrl + 'data/TodaysBenefit')
         .map(res => res.json())
         .subscribe(data => {
           let storedWonBenefitId;
@@ -49,11 +52,31 @@ export class TriviaBenefitsModalPage {
       });
   }
 
+  initCounter(){
+    clearInterval(this.counterInterval);
+    let vm = this;
+    let countdown = 9;
+
+    this.countDownText = (countdown + 1).toString();
+
+    this.counterInterval = setInterval(function() {
+      countdown = --countdown;
+      vm.countDownText = (countdown + 1).toString();
+      
+      if(vm.countDownText == '0')  {
+        clearInterval(this.counterInterval);
+        vm.optionSelected = true;
+        vm.incorrectSelected = '0';
+      }      
+    }, 1000);
+  }
+
   getTrivia() {
-    this.http.get('http://168.181.185.53/api/data/GetTriviaQuestions')
+    this.http.get(environment.apiUrl + 'data/GetTriviaQuestions')
       .map(res => res.json())
       .subscribe(data => {
         this.trivia = data;
+        this.initCounter();
       });
   }
 
@@ -84,6 +107,8 @@ export class TriviaBenefitsModalPage {
     this.optionSelected = false;
     this.incorrectSelected = "";
     this.correctSelected = "";
+
+    this.initCounter();
   }
 
   dismiss() {
@@ -129,7 +154,7 @@ export class TriviaBenefitsModalPage {
     this.storage.get('clientEmail').then((val) => { 
       body = 'email=' + val;
 
-      this.http.post('http://168.181.185.53/api/data/MarkRafflePrizeWon', body, options)
+      this.http.post(environment.apiUrl + 'data/MarkRafflePrizeWon', body, options)
         .subscribe(data => {
           this.storage.set('wonBenefitPrizeDescription', data.json());
           this.prize = data.json();

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { environment } from '../../../app/environment';
 import { NavController, ModalController, Platform, NavParams, ViewController, AlertController } from 'ionic-angular';
 
 @Component({

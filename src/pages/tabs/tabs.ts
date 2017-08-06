@@ -19,6 +19,8 @@ import { TriviaBenefitsModalPage } from '../modals/triviaBenefits/triviaBenefits
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
 
+import { environment } from '../../app/environment';
+
 @Component({
   selector: 'page-tabs',
   templateUrl: 'tabs.html', 
@@ -81,7 +83,7 @@ export class TabsPage {
 
             let body = 'name=' + this.faceUser + '&email=' +  this.faceEmail;
 
-            this.http.post('http://168.181.185.53/api/data/AddOrUpdateClient', body, options)
+            this.http.post(environment.apiUrl + 'data/AddOrUpdateClient', body, options)
               .subscribe(data => {
                 console.log('update ok');
               }, error => {
@@ -118,7 +120,7 @@ export class TabsPage {
   }
 
   presentTriviaBenefitsModal() {
-    if (this.facebookLogged) {
+    if (environment.facebookDisabled || this.facebookLogged) {
       let modal = this.modalCtrl.create(TriviaBenefitsModalPage);
       modal.present();
     }

@@ -1,6 +1,7 @@
 import { Component, ViewChild, trigger, transition, style, animate, state } from '@angular/core';
 import { Http } from '@angular/http';
 import { NavController, ModalController, Platform, NavParams, ViewController, AlertController, Slides } from 'ionic-angular';
+import { environment } from '../../../app/environment';
 
 @Component({
   selector: 'modal-beers',
@@ -47,13 +48,13 @@ export class BeersModalPage {
       }
     ];
 
-    this.http.get('http://168.181.185.53/api/data/GetAllCraftBeers')
+    this.http.get(environment.apiUrl + 'data/GetAllCraftBeers')
       .map(res => res.json())
       .subscribe(data => {
         this.craftBeers = data;
     });
 
-    this.http.get('http://168.181.185.53/api/data/GetAllBottleBeers')
+    this.http.get(environment.apiUrl + 'data/GetAllBottleBeers')
       .map(res => res.json())
       .subscribe(data => {
         for(let i = 0; i < data.length; i++) {
