@@ -1,215 +1,110 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-title>
-            Locales
-        </ion-title>
-        <ion-buttons start>
-            <button ion-button (click)="dismiss()">
-                <span ion-text color="primary" showWhen="ios">Cerrar</span>
-                <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
-            </button>
-        </ion-buttons>
-    </ion-toolbar>
-    <ion-toolbar class="options-toolbar">
-    <ion-segment [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)">
-        <ion-segment-button value="avellaneda">
-            Avellaneda
-        </ion-segment-button>
-        <ion-segment-button value="banfield">
-            Banfield
-        </ion-segment-button>
-    </ion-segment>
-    </ion-toolbar>
+  <ion-toolbar>
+    <ion-title>
+      Locales
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cerrar</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-slides #mySlider (ionSlideDidChange)="onSlideChanged($event)">
-    <ion-slide class="slide-background" style="background-image: url('assets/img/localavellaneda.jpg');">
-        <ion-fab right top>
+<ion-content>
+    <ion-card>
+        <img src="/assets/img/localavellaneda.jpg">
+        <ion-fab left top>
             <a href="geo:?q=Juan+B.+Palaá+592,+B1870ATJ+Avellaneda,+Buenos+Aires,+Argentina" target="_system">
                 <button ion-fab>
                     <ion-icon name="pin"></ion-icon>
                 </button>
             </a>
-            <!--<button ion-fab color="goldBeer" (click)="showAvellanedaCanillero = 'in'"  style="margin-top: 10px;">
-                <ion-icon name="beer"></ion-icon>
-            </button>-->
+            <a href="https://www.facebook.com/1870avellaneda/" target="_system">
+                <button ion-fab color="facebook">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </button>
+            </a>         
+            <a href="https://www.facebook.com/1870banfield/" target="_system">
+                <button ion-fab color="instagram">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </button>
+            </a>      
         </ion-fab>
-        
-        <div class="locations-info">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </div>
-    </ion-slide>
 
-    <ion-slide class="slide-background" style="background-image: url('assets/img/localbanfield.jpg');">
-        <ion-fab right top>
+        <ion-item>
+            <ion-icon name="arrow-dropright" item-left large ></ion-icon>
+            <h2>Avellaneda</h2>
+        </ion-item>
+
+        <ion-item>
+            <ion-icon name="quote" item-left large ></ion-icon>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <img src="/assets/img/localbanfield.jpg">
+        <ion-fab left top>
             <a href="geo:?q=Juan+B.+Palaá+592,+B1870ATJ+Avellaneda,+Buenos+Aires,+Argentina" target="_system">
                 <button ion-fab>
                     <ion-icon name="pin"></ion-icon>
                 </button>
             </a>
-            <!--<button ion-fab color="goldBeer" (click)="showAvellanedaCanillero = 'in'"  style="margin-top: 10px;">
-                <ion-icon name="beer"></ion-icon>
-            </button>-->
         </ion-fab>
-        <!--<ion-fab top right #fab>
-            <button ion-fab id="openFab"><ion-icon name="add"></ion-icon></button>
-            <ion-fab-list side="bottom">
-                <a href="geo:?q=Juan+B.+Palaá+592,+B1870ATJ+Avellaneda,+Buenos+Aires,+Argentina" target="_system">
-                    <button ion-fab>
-                        <ion-label>¿Cómo llego?</ion-label>
-                        <ion-icon name="pin"></ion-icon>
-                    </button>
-                </a>
-                <button ion-fab (click)="showBanfieldCanillero = 'in'">
-                    <ion-label>Canillero</ion-label>
-                    <ion-icon name="beer"></ion-icon>
-                </button>
-            </ion-fab-list>
-        </ion-fab>-->
-        <div class="locations-info">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-        </div>
-    </ion-slide>
-  </ion-slides>
 
-  <!--Canilleros-->
-  <!--Avellaneda-->
-  <div [@slideInOut]="showAvellanedaCanillero" class="canillero-list">
-    <ion-fab top right>
-        <button mini ion-fab (click)="showAvellanedaCanillero = 'out'">
-            <ion-icon name="close"></ion-icon>
-        </button>
-    </ion-fab>
-    <ion-list>
-        <ion-list-header>
-            <h1 style="padding-top: 15px;">Canillero</h1>
-        </ion-list-header>
         <ion-item>
-            <ion-thumbnail item-left>
-                <!--<img src="img/thumbnail-totoro.png">-->
-            </ion-thumbnail>
-            <h2>My Neighbor Totoro</h2>
-            <p>Hayao Miyazaki • 1988</p>
-            <button ion-button clear item-right>+</button>
+            <ion-icon name="football" item-start large></ion-icon>
+            <h2>Museum of Football</h2>
+            <p>11 N. Way St, Madison, WI 53703</p>
         </ion-item>
+
         <ion-item>
-            <ion-thumbnail item-left>
-                <!--<img src="img/thumbnail-totoro.png">-->
-            </ion-thumbnail>
-            <h2>My Neighbor Totoro</h2>
-            <p>Hayao Miyazaki • 1988</p>
-            <button ion-button clear item-right>+</button>
+            <ion-icon name="wine" item-left large ></ion-icon>
+            <h2>Institute of Fine Cocktails</h2>
+            <p>14 S. Hop Avenue, Madison, WI 53703</p>
         </ion-item>
+
         <ion-item>
-            <ion-thumbnail item-left>
-                <!--<img src="img/thumbnail-totoro.png">-->
-            </ion-thumbnail>
-            <h2>My Neighbor Totoro</h2>
-            <p>Hayao Miyazaki • 1988</p>
-            <button ion-button clear item-right>+</button>
+            <span item-left>18 min</span>
+            <span item-left>(2.6 mi)</span>
+            <button ion-button icon-left clear item-end>
+            <ion-icon name="navigate"></ion-icon>
+            Start
+            </button>
         </ion-item>
+    </ion-card>
+
+    <ion-card>
+        <img src="/assets/img/localavellaneda.jpg">
+        <ion-fab left top>
+            <a href="geo:?q=Juan+B.+Palaá+592,+B1870ATJ+Avellaneda,+Buenos+Aires,+Argentina" target="_system">
+                <button ion-fab>
+                    <ion-icon name="pin"></ion-icon>
+                </button>
+            </a>
+        </ion-fab>
+
         <ion-item>
-            <ion-thumbnail item-left>
-                <!--<img src="img/thumbnail-totoro.png">-->
-            </ion-thumbnail>
-            <h2>My Neighbor Totoro</h2>
-            <p>Hayao Miyazaki • 1988</p>
-            <button ion-button clear item-right>+</button>
+            <ion-icon name="football" item-start large></ion-icon>
+            <h2>Museum of Football</h2>
+            <p>11 N. Way St, Madison, WI 53703</p>
         </ion-item>
+
         <ion-item>
-            <ion-thumbnail item-left>
-                <!--<img src="img/thumbnail-totoro.png">-->
-            </ion-thumbnail>
-            <h2>My Neighbor Totoro</h2>
-            <p>Hayao Miyazaki • 1988</p>
-            <button ion-button clear item-right>+</button>
+            <ion-icon name="wine" item-left large ></ion-icon>
+            <h2>Institute of Fine Cocktails</h2>
+            <p>14 S. Hop Avenue, Madison, WI 53703</p>
         </ion-item>
+
         <ion-item>
-            <ion-thumbnail item-left>
-                <!--<img src="img/thumbnail-totoro.png">-->
-            </ion-thumbnail>
-            <h2>My Neighbor Totoro</h2>
-            <p>Hayao Miyazaki • 1988</p>
-            <button ion-button clear item-right>+</button>
+            <span item-left>18 min</span>
+            <span item-left>(2.6 mi)</span>
+            <button ion-button icon-left clear item-end>
+            <ion-icon name="navigate"></ion-icon>
+            Start
+            </button>
         </ion-item>
-        <ion-item>
-            <ion-thumbnail item-left>
-                <!--<img src="img/thumbnail-totoro.png">-->
-            </ion-thumbnail>
-            <h2>My Neighbor Totoro</h2>
-            <p>Hayao Miyazaki • 1988</p>
-            <button ion-button clear item-right>+</button>
-        </ion-item>
-    </ion-list>
-  </div>
-  <!--Banfield-->
-  <div [@slideInOut]="showBanfieldCanillero" class="canillero-list">
-    <ion-fab right top>
-        <button mini ion-fab (click)="showBanfieldCanillero = 'out'">
-            <ion-icon name="close"></ion-icon>
-        </button>
-    </ion-fab>
-    <ion-list>
-        <ion-list-header>
-            <h1 style="padding-top: 15px;">Canillero</h1>
-        </ion-list-header>
-        <ion-item>
-            <ion-thumbnail item-left>
-                <!--<img src="img/thumbnail-totoro.png">-->
-            </ion-thumbnail>
-            <h2>My Neighbor Totoro</h2>
-            <p>Hayao Miyazaki • 1988</p>
-            <button ion-button clear item-right>+</button>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-left>
-                <!--<img src="img/thumbnail-totoro.png">-->
-            </ion-thumbnail>
-            <h2>My Neighbor Totoro</h2>
-            <p>Hayao Miyazaki • 1988</p>
-            <button ion-button clear item-right>+</button>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-left>
-                <!--<img src="img/thumbnail-totoro.png">-->
-            </ion-thumbnail>
-            <h2>My Neighbor Totoro</h2>
-            <p>Hayao Miyazaki • 1988</p>
-            <button ion-button clear item-right>+</button>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-left>
-                <!--<img src="img/thumbnail-totoro.png">-->
-            </ion-thumbnail>
-            <h2>My Neighbor Totoro</h2>
-            <p>Hayao Miyazaki • 1988</p>
-            <button ion-button clear item-right>+</button>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-left>
-                <!--<img src="img/thumbnail-totoro.png">-->
-            </ion-thumbnail>
-            <h2>My Neighbor Totoro</h2>
-            <p>Hayao Miyazaki • 1988</p>
-            <button ion-button clear item-right>+</button>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-left>
-                <!--<img src="img/thumbnail-totoro.png">-->
-            </ion-thumbnail>
-            <h2>My Neighbor Totoro</h2>
-            <p>Hayao Miyazaki • 1988</p>
-            <button ion-button clear item-right>+</button>
-        </ion-item>
-        <ion-item>
-            <ion-thumbnail item-left>
-                <!--<img src="img/thumbnail-totoro.png">-->
-            </ion-thumbnail>
-            <h2>My Neighbor Totoro</h2>
-            <p>Hayao Miyazaki • 1988</p>
-            <button ion-button clear item-right>+</button>
-        </ion-item>
-    </ion-list>
-  </div>
+    </ion-card>
 </ion-content>
