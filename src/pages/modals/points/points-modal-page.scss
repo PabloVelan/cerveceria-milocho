@@ -13,5 +13,11 @@ modal-points {
     height: 52px;
     margin-right: 12px;
   }
+
+  .scroll-content{
+      background: url('../assets/img/fondo.jpg') center repeat;
+      background-size: cover;
+      // background: linear-gradient(118deg, rgba(46,46,46,1) 0%,rgba(30,30,30,1) 50%,rgba(24,24,24,1) 50%,rgba(40,40,40,1) 100%);
+  }
 }
 

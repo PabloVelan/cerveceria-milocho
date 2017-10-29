@@ -10,7 +10,7 @@
             </button>
     </ion-buttons>
   </ion-toolbar>
-  <ion-toolbar class="options-toolbar">
+  <div>
     <ion-segment [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)">
       <ion-segment-button value="tiradas">
         Tiradas
@@ -19,7 +19,7 @@
         Porrones
       </ion-segment-button>
     </ion-segment>
-  </ion-toolbar>
+  </div>
 </ion-header>
 
 <ion-content padding>

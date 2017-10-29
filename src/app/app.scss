@@ -14,3 +14,20 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+@font-face {
+  font-family: 'milocho';
+  src: url('../assets/fonts/IntroHeadB-Base.otf') format('opentype'), url('../assets/fonts/IntroHeadB-Base.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'milocho';
+    font-weight: bold;
+    src: url('../assets/fonts/IntroHeadB-BaseShade.otf') format('opentype'), url('../assets/fonts/IntroHeadB-BaseShade.otf') format('opentype');
+  
+}
+
+modal-locations, modal-beers {
+  font-family: 'milocho' !important;
+}

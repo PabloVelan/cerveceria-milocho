@@ -1,0 +1,115 @@
+modal-locations {
+  ion-scroll {
+    width: 100%;
+    height: 100%;
+  }
+
+  ion-fab a {
+    text-decoration: none !important;
+  }
+
+  .scroll-content{
+      background: url('../assets/img/fondo.jpg') center repeat;
+      background-size: cover;
+      // background: linear-gradient(118deg, rgba(46,46,46,1) 0%,rgba(30,30,30,1) 50%,rgba(24,24,24,1) 50%,rgba(40,40,40,1) 100%);
+  }
+
+  #openFab .fab-close-icon {
+    bottom: 17px !important;
+    position: absolute !important;
+    right: 22px !important;
+    all: initial;
+    * {
+      all: unset;
+    }
+    position: absolute;
+    font-family: "Ionicons";
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    color: #fff;
+    font-size: 24px;
+    // visibility: hidden;
+    transition: opacity 0.3s linear;
+    opacity:0;
+  }
+
+  #openFab.fab-close-active > .fab-close-icon {
+    transition:opacity 0.35s linear;
+    // visibility: visible;
+    opacity:1;
+  }
+  .fab {
+    contain: layout;
+  }
+
+  .fab-close-active .button-inner {
+    transform: rotateZ(45deg) !important;
+  }
+
+  button[ion-fab] {
+    overflow: visible;
+    position: relative;
+
+    ion-label {
+      position: absolute;
+      top: -8px;
+      right: 40px;
+
+      color: white;
+      background-color: rgba(0,0,0,0.7);
+      line-height: 24px;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+  }
+
+  .canillero-list{
+    height: 100vh;
+    width: 100vw;
+    top: 98px;
+    z-index: 9999;
+    position: fixed;
+    display: inline-flex;
+    overflow: scroll;
+    background-color: white;
+  }
+
+  .options-toolbar{
+    min-height: 42px;
+    padding: 0;
+  }
+
+  .segment-button {
+    border-color: color($colors, milochoyellow) !important;
+    color: color($colors, milochoyellow) !important;
+  }
+
+  .slide-background {
+    background-repeat:no-repeat; 
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .scroll-content {
+    padding: 0 !important;
+  }
+
+  .slide-background{
+    width: 100%;
+  }
+
+  .locations-info {
+    height: 100% !important;
+    position: absolute;
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 57%,rgba(0,0,0,0.65) 100%);
+    bottom: 0;
+    color: color($colors, lightG) !important;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 5%;
+  }
+}
+

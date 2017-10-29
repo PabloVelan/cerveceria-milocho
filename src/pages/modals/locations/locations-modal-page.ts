@@ -1,29 +1,15 @@
-import { Component, ViewChild, trigger, transition, style, animate, state } from '@angular/core';
+import { Component, ViewChild  } from '@angular/core';
 
 import { NavController, ModalController, Platform, NavParams, ViewController, Slides } from 'ionic-angular';
 
 @Component({
   selector: 'modal-locations',
-  templateUrl: 'locations-modal-page.html',
-  animations: [
-    trigger('slideInOut', [
-      state('in', style({
-        transform: 'translate3d(0, 0, 0)'
-      })),
-      state('out', style({
-        transform: 'translate3d(100%, 0, 0)'
-      })),
-      transition('in => out', animate('400ms ease-in-out')),
-      transition('out => in', animate('400ms ease-in-out'))
-    ])
-  ]
+  templateUrl: 'locations-modal-page.html'
 })
 export class LocationsModalPage {
   @ViewChild('mySlider') slider: Slides;
   selectedSegment: string;
   slides: any;
-  showAvellanedaCanillero: string;
-  showBanfieldCanillero: string;
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController) {
     this.selectedSegment = 'avellaneda';
@@ -35,25 +21,18 @@ export class LocationsModalPage {
       {
         id: "banfield",
         title: "Banfield"
+      },
+      {
+        id: "beerStation",
+        title: "Beer Station"
       }
     ];
-
-    this.showAvellanedaCanillero = 'out';
-    this.showBanfieldCanillero = 'out';
   }
 
   onSegmentChanged(segmentButton) {
     const selectedIndex = this.slides.findIndex((slide) => {
       return slide.id === segmentButton.value;
     });
-
-    if (segmentButton.value == "avellaneda") {
-      this.showBanfieldCanillero = 'out';
-    }
-    else {
-      this.showAvellanedaCanillero = 'out';
-    }
-
     this.slider.slideTo(selectedIndex);
   }
 

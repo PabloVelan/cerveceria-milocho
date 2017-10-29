@@ -32,7 +32,7 @@ $colors: (
   lightG:#d8d8d8,
   darkG: #383838,
   darkbrown:  #34211a,
-  lightbrown: #dfcaaf
+  milochoyellow: #dfcaaf
 );
 
 
@@ -65,7 +65,7 @@ $colors: (
 // default are overridden.
 $toolbar-md-background:                 color($colors, dark);
 $tabs-md-background:                    color($colors, dark);
-$tabs-md-tab-color-active:              color($colors, lightbrown);
+$tabs-md-tab-color-active:              color($colors, milochoyellow);
 $tabs-md-tab-color-inactive:            color($colors, dark);
 $tabs-md-tab-text-color:                color($colors, lightG);
 $tabs-md-tab-icon-color:                color($colors, lightG);

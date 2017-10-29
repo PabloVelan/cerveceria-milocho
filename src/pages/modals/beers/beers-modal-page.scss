@@ -1,12 +1,22 @@
 modal-beers {
   .scroll-content{
-        background: url('../assets/img/fondo.jpg') repeat;
+        background: url('../assets/img/fondo.jpg') center repeat;
+        background-size: cover;
         //background: linear-gradient(118deg, rgba(46,46,46,1) 0%,rgba(30,30,30,1) 50%,rgba(24,24,24,1) 50%,rgba(40,40,40,1) 100%);
   }
 
   .segment-button {
-    border-color: color($colors, lightbrown) !important;
-    color: color($colors, lightbrown) !important;
+    border-bottom-width: medium !important;
+    border-color: color($colors, milochoyellow) !important;
+    color: color($colors, milochoyellow) !important;
+    border-radius: 10px 10px 0px 0px;
+    height: 37px !important;
+    font-size: large !important;
+  }
+
+  .segment-activated {
+    background-color: color($colors, milochoyellow) !important;
+    color: color($colors, dark) !important;
   }
 
   .slide-background {
@@ -52,12 +62,33 @@ modal-beers {
   }
 
   ion-list .item, .item-header {
-        background-color: rgba(0, 0, 0, 0.46) !important;
-    color: gainsboro;
+    margin-bottom: 10px;
+    background-color: rgba(10, 10, 10, 0.6) !important;
+    color: gainsboro;    
+  }
+
+  ion-list .item h3 {
+    text-transform: uppercase !important;
+    font-size: medium !important;
+  }
+  
+  ion-list .list-header {
+    margin-bottom: 10px;
+    background-color: transparent !important;
+    color: color($colors, milochoyellow) !important;
+    text-transform: uppercase !important;
+  }
+
+  ion-list .list-header .label {
+    font-size: large !important;
   }
 
   .item-inner {
     border: none !important;
+  }
+
+  .item-inner div {
+    font-size: medium !important;
   }
 
   ion-list {
