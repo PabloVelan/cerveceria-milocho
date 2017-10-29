@@ -1,8 +1,27 @@
 modal-beers {
-  .scroll-content{
+  .outer > .scroll-content{
         background: url('../assets/img/fondo.jpg') center repeat;
         background-size: cover;
         //background: linear-gradient(118deg, rgba(46,46,46,1) 0%,rgba(30,30,30,1) 50%,rgba(24,24,24,1) 50%,rgba(40,40,40,1) 100%);
+  }
+  
+  .segments-container {
+    margin-top: 10px;
+    padding: 10px;
+  }
+  
+  .segments-container-content{
+    background: none;
+    .scroll-content {
+      margin-top: 0 !important;
+    }
+  }
+
+  .scroll-content {
+    padding-top: 37px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   .segment-button {
@@ -29,10 +48,6 @@ modal-beers {
     text-transform: uppercase !important;
     font-weight: bold !important;
 }
-
-  .scroll-content {
-    padding: 0 !important;
-  }
 
   .slide-background{
     width: 100%;
@@ -89,6 +104,10 @@ modal-beers {
 
   .item-inner div {
     font-size: medium !important;
+  }
+
+  .ion-md-arrow-dropright:before {
+    content: none ! important;
   }
 
   ion-list {
