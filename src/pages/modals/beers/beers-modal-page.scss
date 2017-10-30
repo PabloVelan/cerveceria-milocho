@@ -47,7 +47,12 @@ modal-beers {
   .technicalData, .list-header {
     text-transform: uppercase !important;
     font-weight: bold !important;
-}
+  }
+
+  .technicalData .col{
+    border-color: color($colors, milochoyellow) !important;
+    border-width: 1px !important;
+  }
 
   .slide-background{
     width: 100%;
@@ -74,6 +79,14 @@ modal-beers {
     height: 0;
     margin-top:0;
     margin-bottom:0;
+  }
+
+  .bottom-dotted{
+    background-image: linear-gradient(to right, color($colors, milochoyellow) 33%, rgba(255,255,255,0) 0%);
+    background-position: bottom left;
+    background-size: 15px 2px;
+    background-repeat: repeat-x;
+    padding-bottom: 5px;
   }
 
   ion-slide {

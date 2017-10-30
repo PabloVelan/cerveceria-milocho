@@ -39,7 +39,8 @@
             <div [class.visible]="isGroupShown(item.Name.concat(i))" [class.hidden]="!isGroupShown(item.Name.concat(i))">
               <hr/>
               {{item.Description}}
-              <ion-row>
+              <div class="bottom-dotted"></div>
+              <ion-row class="technicalData">
                 <ion-col col-3>Alc</ion-col>
                 <ion-col col-3>Ibu</ion-col>
                 <ion-col col-3>Srm</ion-col>
@@ -76,6 +77,7 @@
               <div [class.visible]="isGroupShown(item.Name.concat(i))" [class.hidden]="!isGroupShown(item.Name.concat(i))">
                 <hr/>
                 {{item.Description}}
+                <div class="bottom-dotted"></div>
                 <ion-row class="technicalData">
                   <ion-col col-3>Alc</ion-col>
                   <ion-col col-3>Ibu</ion-col>
