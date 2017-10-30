@@ -55,7 +55,9 @@
               </ion-row>
               Encontrala en
               <ion-row>
-                <ion-badge *ngFor="let store of item.Avialability">{{store.Name}}</ion-badge>
+                <span class="stores" *ngFor="let store of item.Avialability; let isLast=last">
+                  {{store.Name}}{{isLast ? '' : '&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;'}}
+                  </span>
               </ion-row>
             </div>
           </ion-item>
@@ -93,7 +95,9 @@
                 </ion-row>
                 Encontrala en
                 <ion-row>
-                  <ion-badge *ngFor="let store of item.Avialability">{{store.Name}}</ion-badge>
+                  <span class="stores" *ngFor="let store of item.Avialability; let isLast=last">
+                    {{store.Name}}{{isLast ? '' : '&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;'}}
+                  </span>
                 </ion-row>
               </div>
             </ion-item>

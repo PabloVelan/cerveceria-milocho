@@ -131,6 +131,12 @@ modal-beers {
     content: none ! important;
   }
 
+  .stores{
+    text-transform: uppercase !important;
+    font-weight: bold !important;
+    color: color($colors, milochoyellow);
+  }
+
   ion-list {
     ion-icon  {
       font-size: 1.8rem;
