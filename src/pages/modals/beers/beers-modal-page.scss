@@ -68,6 +68,14 @@ modal-beers {
     transition: max-height 0.20s ease-out;
   }
 
+  hr {
+    border-color: color($colors, milochoyellow) !important;
+    border-width: 1px !important;
+    height: 0;
+    margin-top:0;
+    margin-bottom:0;
+  }
+
   ion-slide {
     overflow: scroll;
   }
