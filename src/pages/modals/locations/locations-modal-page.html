@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar>
         <ion-title>
-            Locales
+            Sucursales
         </ion-title>
         <ion-buttons start>
             <button ion-button (click)="dismiss()">
@@ -10,57 +10,107 @@
             </button>
         </ion-buttons>
     </ion-toolbar>
-    <ion-toolbar class="options-toolbar">
-    <ion-segment [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)">
-        <ion-segment-button value="avellaneda">
-            Avellaneda
-        </ion-segment-button>
-        <ion-segment-button value="banfield">
-            Banfield
-        </ion-segment-button>
-        <ion-segment-button value="beerStation">
-            Beer Station
-        </ion-segment-button>
-    </ion-segment>
-    </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-slides #mySlider (ionSlideDidChange)="onSlideChanged($event)">
-    <ion-slide class="slide-background" style="background-image: url('assets/img/localavellaneda.jpg');">
-        <ion-fab right top>
-            <a href="geo:?q=Juan+B.+Palaá+592,+B1870ATJ+Avellaneda,+Buenos+Aires,+Argentina" target="_system">
-                <button ion-fab>
-                <ion-icon name="pin"></ion-icon>
-            </button></a>
-        </ion-fab>
-        <div class="locations-info">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+<ion-content class="outer">
+    <ion-header class="segments-container">
+        <div>
+            <ion-segment [(ngModel)]="selectedSegment" (ionChange)="onSegmentChanged($event)">
+                <ion-segment-button value="avellaneda">
+                    Avellaneda
+                </ion-segment-button>
+                <ion-segment-button value="banfield">
+                    Banfield
+                </ion-segment-button>
+                <ion-segment-button value="beerStation">
+                    Beer Station
+                </ion-segment-button>
+            </ion-segment>
         </div>
-    </ion-slide>
+    </ion-header>
 
-    <ion-slide class="slide-background" style="background-image: url('assets/img/localbanfield.jpg');">
-        <ion-fab right top>
-            <a href="geo:?q=Juan+B.+Palaá+592,+B1870ATJ+Avellaneda,+Buenos+Aires,+Argentina" target="_system">
-                <button ion-fab>
-                <ion-icon name="pin"></ion-icon>
-            </button></a>
-        </ion-fab>
-        <div class="locations-info">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-        </div>
-    </ion-slide>
+    <ion-content class="segments-container-content">
+        <ion-slides #mySlider (ionSlideDidChange)="onSlideChanged($event)">
+            <ion-slide>
+                <div>
+                    <ion-fab right top>
+                    <a href="geo:?q=Juan+B.+Palaá+592,+B1870ATJ+Avellaneda,+Buenos+Aires,+Argentina" target="_system">
+                        <button ion-fab>
+                        <ion-icon name="pin"></ion-icon>
+                    </button></a>
+                    </ion-fab>
+                    
+                    <div class="locations-info slide-background" style="background-image: url('assets/img/localavellaneda.jpg');">
+                        <ion-grid>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                            <div class="bottom-filled"></div>    
+                            <ion-row>
+                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">1</ion-col>
 
-    <ion-slide class="slide-background" style="background-image: url('assets/img/localbanfield.jpg');">
-        <ion-fab right top>
-            <a href="geo:?q=Juan+B.+Palaá+592,+B1870ATJ+Avellaneda,+Buenos+Aires,+Argentina" target="_system">
-                <button ion-fab>
-                <ion-icon name="pin"></ion-icon>
-            </button></a>
-        </ion-fab>
-        <div class="locations-info">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-        </div>
-    </ion-slide>
-  </ion-slides>
+                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">2</ion-col>
+
+                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">3</ion-col>
+
+                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">4</ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </div>
+                </div>
+                
+            </ion-slide>
+
+            <ion-slide>
+                <div>
+                    <ion-fab right top>
+                        <a href="geo:?q=Juan+B.+Palaá+592,+B1870ATJ+Avellaneda,+Buenos+Aires,+Argentina" target="_system">
+                            <button ion-fab>
+                            <ion-icon name="pin"></ion-icon>
+                        </button></a>
+                    </ion-fab>
+                    <div class="locations-info slide-background" style="background-image: url('assets/img/localbanfield.jpg');">
+                        <ion-grid>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                            <div class="bottom-filled"></div>    
+                            <ion-row>
+                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">1</ion-col>
+
+                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">2</ion-col>
+
+                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">3</ion-col>
+
+                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">4</ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </div>
+                </div>
+            </ion-slide>
+
+            <ion-slide>
+                <div>
+                    <ion-fab right top>
+                        <a href="geo:?q=Juan+B.+Palaá+592,+B1870ATJ+Avellaneda,+Buenos+Aires,+Argentina" target="_system">
+                            <button ion-fab>
+                            <ion-icon name="pin"></ion-icon>
+                        </button></a>
+                    </ion-fab>
+                    <div class="locations-info slide-background" style="background-image: url('assets/img/localbanfield.jpg');">
+                        <ion-grid>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                            <div class="bottom-filled"></div>    
+                                <ion-row>
+                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">1</ion-col>
+
+                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">2</ion-col>
+
+                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">3</ion-col>
+
+                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">4</ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </div>
+                    
+                </div>
+            </ion-slide>
+        </ion-slides>
+    </ion-content>
 </ion-content>

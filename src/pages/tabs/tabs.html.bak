@@ -23,7 +23,7 @@
 
   <ion-card (click)="presentLocationsModal()">
     <img src="assets/img/card3.jpg"/>
-    <div class="card-title">Locales</div>
+    <div class="card-title">Sucursales</div>
     <div class="card-subtitle"></div>
   </ion-card>
 
