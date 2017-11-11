@@ -1,10 +1,52 @@
 modal-news {
+
+    ion-list .item, .item-header {
+    margin-bottom: 10px;
+    background-color: rgba(10, 10, 10, 0.6) !important;
+    color: gainsboro;    
+  }
+
+  ion-list .item h3 {
+    text-transform: uppercase !important;
+    font-size: medium !important;
+  }
+  
+  ion-list .list-header {
+    margin-bottom: 10px;
+    background-color: transparent !important;
+    color: color($colors, milochoyellow) !important;
+    text-transform: uppercase !important;
+  }
+
+  ion-list .list-header .label {
+    font-size: large !important;
+  }
+
   ion-list h2{
-      color: gray;
+      font-weight: bold !important;
+      color:  color($colors, milochoyellow);
+      text-transform: uppercase !important;
+  }
+
+  .label {
+      transition-timing-function:  ease;
+      transition: height 2s;
+  }
+
+  .normal {
+      white-space: normal !important;      
+  }
+
+  .collapsed {
+      white-space: nowrap !important;
   }
 
   ion-list ion-icon{
       color: gold;
+  }
+
+  .list-md .item-block .item-inner {
+      border-bottom: 0 !important;
   }
 
   .scroll-content{

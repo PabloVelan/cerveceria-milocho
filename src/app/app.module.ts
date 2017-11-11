@@ -20,6 +20,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Facebook } from '@ionic-native/facebook';
 import { IonicStorageModule } from '@ionic/storage';
 import { environment } from './environment';
+import { LOCALE_ID } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { environment } from './environment';
     StatusBar,
     SplashScreen,
     Facebook,
+    {provide: LOCALE_ID, useValue: "es-AR" },
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

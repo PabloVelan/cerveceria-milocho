@@ -9,6 +9,7 @@ import { environment } from '../../../app/environment';
 })
 export class NewsModalPage {
   items: Array<any>;
+  shownNotification = null;
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, public alertCtrl: AlertController,
     public http: Http) {
@@ -25,12 +26,15 @@ export class NewsModalPage {
     this.viewCtrl.dismiss();
   }
 
-  showAlert(message) {
-    let alert = this.alertCtrl.create({
-      title: 'Notificación',
-      subTitle: message,
-      buttons: ['OK']
-    });
-    alert.present();
+  toggleNotification(id) {
+    if(this.shownNotification === id){
+      this.shownNotification = null;
+    } else {
+      this.shownNotification = id;
+    }
+  }
+
+  isNotificationShown(id){
+    return this.shownNotification === id;
   }
 }
