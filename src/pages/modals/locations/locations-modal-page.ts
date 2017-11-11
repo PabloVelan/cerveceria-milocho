@@ -10,6 +10,12 @@ export class LocationsModalPage {
   @ViewChild('mySlider') slider: Slides;
   selectedSegment: string;
   slides: any;
+  avellanedaPictures: any;
+  banfieldPictures: any;
+  beerStationPictures: any;
+  selectedAvellanedaPic: number;
+  selectedBanfieldPic: number;
+  selectedBeerStationPic: number;
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController) {
     this.selectedSegment = 'avellaneda';
@@ -27,6 +33,18 @@ export class LocationsModalPage {
         title: "Beer Station"
       }
     ];
+
+    this.selectedAvellanedaPic = 0;
+    this.selectedBanfieldPic = 0;
+    this.selectedBeerStationPic = 0;
+
+    this.avellanedaPictures = ['url(\'assets/img/localavellaneda.jpg\')', 'url(\'assets/img/avellaneda1.jpg\')', 'url(\'assets/img/avellaneda2.jpg\')', 'url(\'assets/img/avellaneda3.jpg\')'];
+    this.banfieldPictures = ['url(\'assets/img/localbanfield.jpg\')', 'url(\'assets/img/banfield1.jpg\')', 'url(\'assets/img/banfield2.jpg\')', 'url(\'assets/img/banfield3.jpg\')'];
+    this.beerStationPictures = ['url(\'assets/img/localavellaneda.jpg\')', 'url(\'assets/img/avellaneda1.jpg\')', 'url(\'assets/img/avellaneda2.jpg\')', 'url(\'assets/img/avellaneda3.jpg\')'];
+  }
+
+  avellanedaBackground(){
+    return 'url(\'assets/img/localavellaneda.jpg\')';
   }
 
   onSegmentChanged(segmentButton) {

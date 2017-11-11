@@ -40,18 +40,15 @@
                     </button></a>
                     </ion-fab>
                     
-                    <div class="locations-info slide-background" style="background-image: url('assets/img/localavellaneda.jpg');">
+                    <div class="locations-info slide-background" [style.background-image]="avellanedaPictures[selectedAvellanedaPic]">
                         <ion-grid>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                             <div class="bottom-filled"></div>    
                             <ion-row>
-                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">1</ion-col>
-
-                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">2</ion-col>
-
-                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">3</ion-col>
-
-                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">4</ion-col>
+                                <ion-col col-3 *ngFor="let item of avellanedaPictures; let idx = index" 
+                                    [style.background-image]="avellanedaPictures[idx]"
+                                    (click)="selectedAvellanedaPic = idx">
+                                </ion-col>  
                             </ion-row>
                         </ion-grid>
                     </div>
@@ -67,18 +64,15 @@
                             <ion-icon name="pin"></ion-icon>
                         </button></a>
                     </ion-fab>
-                    <div class="locations-info slide-background" style="background-image: url('assets/img/localbanfield.jpg');">
+                    <div class="locations-info slide-background" [style.background-image]="banfieldPictures[selectedBanfieldPic]">
                         <ion-grid>
                             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
                             <div class="bottom-filled"></div>    
                             <ion-row>
-                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">1</ion-col>
-
-                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">2</ion-col>
-
-                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">3</ion-col>
-
-                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">4</ion-col>
+                                <ion-col col-3 *ngFor="let item of banfieldPictures; let idx = index" 
+                                    [style.background-image]="banfieldPictures[idx]"
+                                    (click)="selectedBanfieldPic = idx">
+                                </ion-col>  
                             </ion-row>
                         </ion-grid>
                     </div>
@@ -93,19 +87,16 @@
                             <ion-icon name="pin"></ion-icon>
                         </button></a>
                     </ion-fab>
-                    <div class="locations-info slide-background" style="background-image: url('assets/img/localbanfield.jpg');">
+                    <div class="locations-info slide-background" [style.background-image]="beerStationPictures[selectedBeerStationPic]">
                         <ion-grid>
                             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
                             <div class="bottom-filled"></div>    
                                 <ion-row>
-                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">1</ion-col>
-
-                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">2</ion-col>
-
-                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">3</ion-col>
-
-                                <ion-col col-3 style="background-image: url('assets/img/localavellaneda.jpg');">4</ion-col>
-                            </ion-row>
+                                    <ion-col col-3 *ngFor="let item of beerStationPictures; let idx = index" 
+                                        [style.background-image]="beerStationPictures[idx]"
+                                        (click)="selectedBeerStationPic = idx">
+                                    </ion-col>  
+                                </ion-row>
                         </ion-grid>
                     </div>
                     
